@@ -1,23 +1,37 @@
-import * as React from 'react';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
-import Copyright from '../src/Copyright';
+import * as React from "react";
+import { Container, Typography, Button, Box } from "@mui/material";
+import Link from "next/link"; // Assuming use of Next.js's Link for navigation
 
 export default function Index() {
   return (
     <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
+      <Box
+        sx={{
+          my: 4,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <Typography variant="h4" component="h1" gutterBottom>
-          Next.js example
+          Welcome to My Next.js Application
         </Typography>
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
-        <ProTip />
-        <Copyright />
+        <Typography variant="body1" gutterBottom>
+          Get started by either logging in or registering a new account.
+        </Typography>
+        <Box mt={2} display="flex" gap={2}>
+          <Link href="/login" passHref>
+            <Button variant="contained" color="primary">
+              Login
+            </Button>
+          </Link>
+          <Link href="/register" passHref>
+            <Button variant="contained" color="secondary">
+              Register
+            </Button>
+          </Link>
+        </Box>
       </Box>
     </Container>
   );
