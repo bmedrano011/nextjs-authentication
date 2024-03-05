@@ -16,6 +16,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { useRouter } from "next/router";
+import { Logout } from "@mui/icons-material";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -24,7 +25,17 @@ const Dashboard = () => {
     { text: "Home", icon: <HomeIcon />, path: "/" },
     { text: "Profile", icon: <AccountBoxIcon />, path: "/profile" },
     { text: "Dashboard", icon: <DashboardIcon />, path: "/dashboard" },
+    { text: "Logout", icon: <Logout />, path: "/" },
   ];
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      router.push("/"); // Redirect to login after logout
+    } catch (error) {
+      console.error("Error logging out:", error.message);
+    }
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
