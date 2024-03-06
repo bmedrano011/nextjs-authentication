@@ -4,12 +4,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAbmhzEeZGVE8iyZTswf0FGxvdiD5MPej0",
-  authDomain: "nextjs-authentication-de-7193d.firebaseapp.com",
-  projectId: "nextjs-authentication-de-7193d",
-  storageBucket: "nextjs-authentication-de-7193d.appspot.com",
-  messagingSenderId: "234386137987",
-  appId: "1:234386137987:web:e0d279e460202355730cb6",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY, // The NEXT_PUBLIC_ prefix is necessary for variables to be exposed to the browser.
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase
