@@ -1,8 +1,17 @@
 import * as React from "react";
 import { Container, Typography, Button, Box } from "@mui/material";
 import Link from "next/link"; // Assuming use of Next.js's Link for navigation
+import { useEffect, useState } from "react";
 
 export default function Index() {
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
+
   return (
     <Container maxWidth="sm">
       <Box
